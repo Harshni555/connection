@@ -22,6 +22,9 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+// Trust the first proxy (for example, if you're behind a load balancer)
+app.set('trust proxy', 1);
+
 // Rate Limiting
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
@@ -41,7 +44,7 @@ app.use(
     session({
     secret: process.env.SESSION_SECRET  || 'defaultSecret',
     resave: false,
-    saveuninitialized: false,
+    saveuninitialized: true,
     cookie: {
         secure: false,
         httpOnly: true,

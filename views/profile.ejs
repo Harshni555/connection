@@ -1,0 +1,24 @@
+<%- include('./layouts/header') %>
+
+<h1><span class="goback" onclick="window.history.back()">← </span></h1>
+
+<div class="profile">
+    <div class="profile-item">
+        <p class="title">ID</p>
+        <p class="subtitle"><%= person.id %></p>
+    </div>
+    <div class="profile-item">
+        <p class="title">Email/Username</p>
+        <p class="subtitle"><%= person.email %></p>
+    </div>
+    <div class="profile-item">
+        <p class="title">Role</p>
+        <p class="subtitle"><%= person.role %></p>
+    </div>
+    <div class="profile-item">
+        <p class="title">User object</p>
+        <pre class="subtitle"><%= person %></pre>
+    </div>
+</div>
+
+<%- include('./layouts/footer') %>
